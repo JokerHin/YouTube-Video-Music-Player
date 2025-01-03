@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="top-buttons">
+        <button id="conditions-button" class="top-button">Conditions</button>
+        <button id="history-button" class="top-button">History</button>
+        <button id="mode-toggle" class="top-button">Toggle Mode</button>
+        <button id="auto-play-button" class="top-button">Auto Play</button>
+    </div>
+    <div class="user-info" id="user-info" style="display: none;">
+        <img id="user-picture" src="" alt="User Picture">
+        <span id="user-name"></span>
+    </div>
+    <div class="container">
+        <div class="main-content">
+            <h1>YouTube Video Player</h1>
+            <input type="text" id="youtube-url" placeholder="Enter YouTube URL">
+            <button id="play-button">Play Video</button>
+            <div class="video-player">
+                <iframe id="video-player" src="" allowfullscreen></iframe>
+            </div>
+            <button id="back-button" onclick="window.location.href='index.html'">Go Back to Landing Page</button>
+        </div>
+    </div>
+    <div id="conditions-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Conditions</h2>
+            <ul>
+                <li>Enter a valid YouTube URL.</li>
+                <li>Use one of these formats:
+                    <ul>
+                        <li>youtube.com/watch?v=VIDEO_ID</li>
+                        <li>youtu.be/VIDEO_ID</li>
+                    </ul>
+                </li>
+                <li>Ensure the video is public.</li>
+                <li>Stable internet connection required.</li>
+                <li>Use a modern browser with JavaScript enabled.</li>
+            </ul>
+        </div>
+    </div>
+    <div id="history-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="history-modal-close">&times;</span>
+            <h2>History</h2>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search YouTube videos">
+                <button id="search-button">Search</button>
+            </div>
+            <div id="search-results" class="search-results"></div>
+            <div id="history-list"></div>
+        </div>
+    </div>
+    <div id="title-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="title-modal-close">&times;</span>
+            <h2>Enter Video Title</h2>
+            <input type="text" id="video-title" placeholder="Enter title">
+            <button id="save-title-button">Save</button>
+        </div>
+    </div>
+    <div class="edit-profile-container" id="edit-profile-container" style="display: none;">
+        <h1>Edit Profile</h1>
+        <form id="edit-profile-form">
+            <div class="form-group">
+                <label for="edit-name">Name:</label>
+                <input type="text" id="edit-name" name="edit-name" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-profile-picture">Profile Picture:</label>
+                <div class="custom-file-input">
+                    <input type="file" id="edit-profile-picture" name="edit-profile-picture" accept="image/*">
+                </div>
+            </div>
+            <button type="submit">Save Changes</button>
+            <button type="button" id="logout-button" class="cta-button">Logout</button>
+            <button type="button" id="back-to-landing-from-edit" class="cta-button">Back</button>
+        </form>
+    </div>
+    <script src="app.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>

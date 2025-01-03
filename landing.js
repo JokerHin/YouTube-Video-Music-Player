@@ -86,7 +86,7 @@ document.getElementById('get-started-button').addEventListener('click', function
     event.preventDefault();
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
-        window.location.href = 'index.html';
+        window.location.href = 'content.html';
     } else {
         document.getElementById('login-container').style.display = 'block';
         document.querySelector('.hero').style.display = 'none';
@@ -97,7 +97,7 @@ document.getElementById('get-started-hero-button').addEventListener('click', fun
     event.preventDefault();
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
-        window.location.href = 'index.html';
+        window.location.href = 'content.html';
     } else {
         document.getElementById('login-container').style.display = 'block';
         document.querySelector('.hero').style.display = 'none';

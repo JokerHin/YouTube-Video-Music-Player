@@ -71,7 +71,7 @@ document.getElementById('edit-profile-form').addEventListener('submit', function
 document.getElementById('logout-button').addEventListener('click', function() {
     localStorage.removeItem('user');
     alert('Logged out successfully!');
-    window.location.href = 'landing.html';
+    window.location.href = 'index.html';
 });
 
 document.getElementById('back-to-landing-from-edit').addEventListener('click', function() {
