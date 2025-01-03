@@ -1,0 +1,532 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #0B0C10;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background: #FFFFFF;
+    color: #000000;
+}
+
+.top-buttons {
+    width: 40%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.user-info {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-info span {
+    color: #C5C6C7;
+}
+
+body.light-mode .user-info span {
+    color: #000000;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 50px auto;
+    background: #1F2833;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+body.light-mode .container {
+    background: #FFFFFF;
+    color: #000000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-content {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #C5C6C7;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+body.light-mode h1 {
+    color: #000000;
+}
+
+input[type="text"], input[type="password"], input[type="file"] {
+    width: 97%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #C5C6C7;
+    border-radius: 8px;
+    background-color: #0B0C10;
+    color: #C5C6C7;
+    transition: border-color 0.3s;
+}
+
+body.light-mode input[type="text"], body.light-mode input[type="password"], body.light-mode input[type="file"] {
+    background-color: #FFFFFF;
+    color: #000000;
+    border-color: #000000;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="file"]:focus {
+    border-color: #66FCF1;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #66FCF1;
+    color: #0B0C10;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45A29E;
+    transform: translateY(-2px);
+}
+
+#back-button {
+    background-color: #C5C6C7;
+}
+
+#back-button:hover {
+    background-color: #A5A6A7;
+}
+
+.video-player {
+    position: relative;
+    margin-top: 20px;
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 8px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #1F2833;
+    margin: 15% auto;
+    margin-top: 70px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+body.light-mode .modal-content {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #C5C6C7;
+    font-size: 20px;
+}
+
+body.light-mode .modal-content h2 {
+    color: #000000;
+}
+
+.modal-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #C5C6C7;
+}
+
+body.light-mode .modal-content ul {
+    color: #000000;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.history-item a {
+    color: #66FCF1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.history-item a:hover {
+    color: #45A29E;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+.history-item .edit-button,
+.history-item .delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.history-item .edit-button {
+    background-color: #007bff;
+}
+
+.history-item .edit-button:hover {
+    background-color: #0056b3;
+}
+
+.history-item .delete-button:hover {
+    background-color: #c82333;
+}
+
+
+.history-item .download-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 70px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 10pt;
+    margin-top: 10px;
+}
+
+.history-item .download-button:hover {
+    background-color: #218838;
+}
+
+.history-item .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 30px;
+    left: 0;
+    border-radius: 4px;
+}
+
+.history-item .dropdown-content a {
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.history-item .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.history-item .download-button:hover .dropdown-content {
+    display: block;
+}
+
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #C5C6C7;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body.light-mode .close {
+    color: #000000;
+}
+
+body.light-mode .close:hover,
+body.light-mode .close:focus {
+    color: #000000;
+}
+
+.custom-file-input {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.custom-file-input input[type="file"] {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    color: black;
+}
+
+.custom-file-input label {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    background-color: #C5C6C7;
+    color: #0B0C10;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 0 auto;
+}
+
+.custom-file-input label:hover {
+    background-color: #45A29E;
+    transform: translateY(-2px);
+}
+
+body.light-mode .custom-file-input label {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+body.light-mode .custom-file-input label:hover {
+    background-color: #A5A6A7;
+}
+
+.form-group label {
+    color: #C5C6C7;
+}
+
+body.light-mode .form-group label {
+    color: #000000;
+}
+
+.edit-profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 50px auto;
+    background: #1F2833;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+body.light-mode .edit-profile-container {
+    background: #FFFFFF;
+    color: #000000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.edit-profile-container h1 {
+    text-align: center;
+    color: #C5C6C7;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+body.light-mode .edit-profile-container h1 {
+    color: #000000;
+}
+
+.edit-profile-container .form-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.edit-profile-container .form-group label {
+    display: block;
+    color: #C5C6C7;
+    margin-bottom: 5px;
+}
+
+body.light-mode .edit-profile-container .form-group label {
+    color: #000000;
+}
+
+.edit-profile-container .form-group input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #C5C6C7;
+    border-radius: 8px;
+    background-color: #0B0C10;
+    color: #C5C6C7;
+    margin: 0 auto;
+    display: block;
+}
+
+body.light-mode .edit-profile-container .form-group input {
+    background-color: #FFFFFF;
+    color: #000000;
+    border-color: #000000;
+}
+
+.edit-profile-container .form-group input:focus {
+    border-color: #66FCF1;
+    outline: none;
+}
+
+.edit-profile-container .custom-file-input {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.edit-profile-container .custom-file-input input[type="file"] {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    
+}
+
+#edit-profile-picture {
+    width: 98%;
+    height: 60%;
+    cursor: pointer;
+    border: 1px solid white;
+    color: white;
+}
+
+.edit-profile-container .custom-file-input label {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    background-color: #C5C6C7;
+    color: #0B0C10;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 0 auto;
+}
+
+.edit-profile-container .custom-file-input label:hover {
+    background-color: #45A29E;
+    transform: translateY(-2px);
+}
+
+body.light-mode .edit-profile-container .custom-file-input label {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+body.light-mode .edit-profile-container .custom-file-input label:hover {
+    background-color: #A5A6A7;
+}
+
+.edit-profile-container button {
+    width: calc(100% - 20px);
+    padding: 12px;
+    background-color: #66FCF1;
+    color: #0B0C10;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 10px;
+}
+
+.edit-profile-container button:hover {
+    background-color: #45A29E;
+    transform: translateY(-2px);
+}
+
+.edit-profile-container .cta-button {
+    background-color: #C5C6C7;
+}
+
+.edit-profile-container .cta-button:hover {
+    background-color: #A5A6A7;
+}
+
+#auto-play-button {
+    background-color: grey;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#auto-play-button.active {
+    background-color: #66FCF1;
+    color: black;
+}
